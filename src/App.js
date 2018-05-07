@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import List from './List'
 import Navbar from './components/Navbar'
 import './globalStyle'
+import GiftInput from './components/GiftInput';
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <div className="App">
         <Navbar />
         Gift list goes here...
+        <GiftInput />
       </div>
     )
   }
