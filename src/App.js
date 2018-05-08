@@ -1,14 +1,35 @@
 import React, { Component } from 'react'
-import List from './List'
 import Navbar from './components/Navbar'
+import List from './components/List'
 import './globalStyle'
 
 class App extends Component {
-  render() {
+  constructor () {
+    super()
+    this.state = {
+      giftListItems: [
+        {
+          label: 'concert tickets',
+          people: [ 'Mum', 'Dad', 'Bruce'],
+        },
+        {
+          label: 'beach towel',
+          people: [ 'Mum', 'Grandma', 'Ellen'],
+        },
+        {
+          label: 'book',
+          people: [ 'Bob', 'Alice', 'Lee'],
+        },
+      ]
+    }
+  }
+
+
+  render () {
     return (
       <div className="App">
         <Navbar />
-        Gift list goes here...
+        <List giftListItems={this.state.giftListItems} />
       </div>
     )
   }
