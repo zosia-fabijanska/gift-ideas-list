@@ -1,35 +1,32 @@
 import React, { Component } from 'react'
+import { createStore } from 'redux'
+//
 import Navbar from './components/Navbar'
 import List from './components/List'
 import './globalStyle'
+import gifts from './reducers/reducers'
+import { addGift } from './actions/actions'
+
+const store = createStore(gifts)
 
 class App extends Component {
-  constructor () {
+  constructor() {
     super()
+    store.subscribe(() => (
+      console.log(store.getState())
+    ))
+    store.dispatch(addGift('first gift'))
+
     this.state = {
-      giftListItems: [
-        {
-          label: 'concert tickets',
-          people: [ 'Mum', 'Dad', 'Bruce'],
-        },
-        {
-          label: 'beach towel',
-          people: [ 'Mum', 'Grandma', 'Ellen'],
-        },
-        {
-          label: 'book',
-          people: [ 'Bob', 'Alice', 'Lee'],
-        },
-      ]
+      giftList: store.getState()
     }
   }
 
-
-  render () {
+  render() {
     return (
       <div className="App">
         <Navbar />
-        <List giftListItems={this.state.giftListItems} />
+        <List giftList={this.state.giftList} />
       </div>
     )
   }

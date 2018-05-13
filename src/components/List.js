@@ -1,8 +1,8 @@
 import React from 'react'
 
-const List = ({ giftListItems }) => {
-  const list = giftListItems.map((item, index) => (
-    <div key={index}>{item.label}</div>
+const List = ({ giftList}) => {
+  const list = giftList.map(item => (
+    <div key={item.id}>{item.text}</div>
   ))
 
   return (
