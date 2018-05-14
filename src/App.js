@@ -12,10 +12,10 @@ const store = createStore(gifts)
 class App extends Component {
   constructor() {
     super()
-    store.subscribe(() => (
-      console.log(store.getState())
-    ))
     store.dispatch(addGift('first gift'))
+    store.dispatch(addGift('A beach-ball'))
+    store.dispatch(addGift('Sega Master System II'))
+    store.dispatch(addGift('Risk boardgame'))
 
     this.state = {
       giftList: store.getState()

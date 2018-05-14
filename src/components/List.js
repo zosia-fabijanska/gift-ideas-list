@@ -1,9 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+//
+import GiftItem from './GiftItem'
 
 const List = ({ giftList }) => {
   const list = giftList.map(item => (
-    <div key={item.id}>{item.text}</div>
+    <GiftItem
+      key={item.id}
+      itemText={item.text}
+    />
   ))
 
   return (
